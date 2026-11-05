@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   return (
     <div className="container">
-      <h1>My First Jenkins CI/CD Project</h1>
+     <h1>My React CI/CD Pipeline - Version 2</h1>
 
       <p>
         React + GitHub + Jenkins + Azure
