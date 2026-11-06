@@ -1,33 +1,384 @@
 
-.container {
-  max-width: 650px;
-  margin: 100px auto;
-  padding: 50px 30px;
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #10050c;
+}
+
+.diwali-page {
+  min-height: 100vh;
+  width: 100%;
+  padding: 55px 20px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 45%, #542018 0%, #250d19 48%, #10050c 100%);
+  color: #fff2d4;
+}
+
+/* Ambient lighting */
+
+.ambient {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.ambient-one {
+  background: #ff9b26;
+  top: 5%;
+  left: -150px;
+}
+
+.ambient-two {
+  background: #d12b39;
+  right: -150px;
+  bottom: 5%;
+}
+
+/* Floating sparkles */
+
+.sparkle {
+  position: absolute;
+  color: #ffd66e;
+  text-shadow: 0 0 20px #ffb52e;
+  animation: sparkle 3s infinite alternate;
+}
+
+.sparkle-one {
+  top: 15%;
+  left: 15%;
+  font-size: 35px;
+}
+
+.sparkle-two {
+  top: 28%;
+  right: 13%;
+  font-size: 45px;
+  animation-delay: 1s;
+}
+
+.sparkle-three {
+  bottom: 15%;
+  left: 12%;
+  font-size: 30px;
+  animation-delay: 2s;
+}
+
+/* Main card */
+
+.greeting-card {
+  width: min(100%, 760px);
+  position: relative;
+  z-index: 2;
   text-align: center;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  padding: 42px 65px;
+  border: 1px solid rgba(255, 206, 112, 0.65);
+  border-radius: 24px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(81, 24, 38, 0.96),
+    rgba(39, 11, 26, 0.98)
+  );
+
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.5),
+    0 0 35px rgba(255, 166, 52, 0.12),
+    inset 0 0 35px rgba(255, 193, 89, 0.04);
+
+  animation: cardEntry 1.2s ease-out;
 }
 
-h1 {
-  color: #2563eb;
-  font-size: 32px;
+/* Company branding */
+
+.card-header {
+  margin-bottom: 22px;
 }
 
-p {
-  color: #555;
+.brand-icon {
+  font-size: 34px;
+  color: #ffcf65;
+  text-shadow: 0 0 20px #ff9c29;
+}
+
+.brand-name {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 7px;
+  color: #ffd477;
+  margin-top: 4px;
+}
+
+.brand-line {
+  display: block;
+  width: 90px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #ffd477, transparent);
+  margin: 14px auto;
+}
+
+.brand-caption {
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: #c9a98a;
+}
+
+/* Diya */
+
+.main-diya {
+  margin: 22px 0 10px;
+  font-size: 58px;
+}
+
+.main-diya span {
+  display: inline-block;
+  animation: diyaGlow 2s infinite alternate;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 6px;
+  color: #e8c18a;
+  margin: 12px 0 16px;
+}
+
+/* Main heading */
+
+.main-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 7vw, 76px);
+  font-weight: 700;
+  line-height: 1.05;
+  color: #fff5e2;
+  text-shadow: 0 3px 25px rgba(255, 173, 72, 0.3);
+  margin: 0;
+}
+
+.main-title span {
+  display: block;
+  color: #ffd16b;
+  margin-top: 8px;
+}
+
+/* Divider */
+
+.gold-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  color: #ffd16b;
+  margin: 25px 0;
+}
+
+.gold-divider span {
+  width: 65px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d9a84d);
+}
+
+.gold-divider span:last-child {
+  transform: rotate(180deg);
+}
+
+/* Message */
+
+.greeting-message {
+  max-width: 560px;
+  margin: auto;
+  color: #f1dfc9;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 2;
+}
+
+.greeting-message p {
+  margin-bottom: 15px;
+}
+
+.greeting-message .dear {
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffdb9a;
+  margin-bottom: 20px;
+}
+
+/* Celebration */
+
+.celebration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 28px 0 18px;
+}
+
+.celebration h2 {
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffcf70;
+}
+
+.celebration span {
   font-size: 18px;
 }
 
-button {
-  padding: 12px 25px;
-  background: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+/* Diyas */
+
+.diya-row {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  margin: 15px 0 22px;
 }
 
-button:hover {
-  background: #1d4ed8;
+.diya-row span {
+  font-size: 35px;
+  animation: diyaGlow 2s infinite alternate;
+}
+
+.diya-row span:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+/* Final wish */
+
+.final-wish {
+  font-size: 14px;
+  color: #f3dcb7;
+  line-height: 2;
+}
+
+.final-wish strong {
+  display: block;
+  font-size: 19px;
+  color: #ffd16b;
+  font-weight: 600;
+}
+
+/* Footer */
+
+.card-footer {
+  border-top: 1px solid rgba(255, 211, 125, 0.25);
+  margin-top: 28px;
+  padding-top: 22px;
+}
+
+.card-footer p {
+  font-size: 13px;
+  color: #d9bfa4;
+}
+
+.card-footer h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 29px;
+  color: #ffdb83;
+  margin: 5px 0 12px;
+}
+
+.card-footer span {
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: #b99a7a;
+}
+
+.bottom-text {
+  position: relative;
+  z-index: 2;
+  margin-top: 25px;
+  color: #b99a7a;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+/* Animations */
+
+@keyframes diyaGlow {
+  from {
+    filter: drop-shadow(0 0 5px #ff9d25);
+    transform: translateY(0);
+  }
+
+  to {
+    filter: drop-shadow(0 0 22px #ffbd42);
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes sparkle {
+  from {
+    opacity: 0.3;
+    transform: scale(0.8) rotate(0deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.2) rotate(45deg);
+  }
+}
+
+@keyframes cardEntry {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  .diwali-page {
+    padding: 35px 14px 20px;
+  }
+
+  .greeting-card {
+    padding: 32px 20px;
+  }
+
+  .brand-name {
+    font-size: 13px;
+    letter-spacing: 4px;
+  }
+
+  .main-title {
+    font-size: 49px;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 3px;
+  }
+
+  .greeting-message {
+    font-size: 13px;
+  }
+
+  .celebration h2 {
+    font-size: 12px;
+  }
+
+  .card-footer h3 {
+    font-size: 25px;
+  }
 }
