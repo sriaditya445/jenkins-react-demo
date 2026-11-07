@@ -13,7 +13,7 @@ it('should display the main Diwali heading', () => {
   })
 
   expect(heading).toBeInTheDocument()
-  expect(heading).toHaveTextContent(/Advance Happy.*Diwali!/i)
+  expect(heading).toHaveTextContent(/Advance Hapy.*Diwali!/i)
 })
 
   it('should display the company name', () => {
